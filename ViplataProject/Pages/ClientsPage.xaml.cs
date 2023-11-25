@@ -27,11 +27,10 @@ namespace ViplataProject.Pages
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-           // NavigationService.Navigate(new MenuPage());
-            ClientsPage clientsPage = new ClientsPage();
+            MenuPage menuPage = new MenuPage();
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-            mainWindow.Title = "Главное меню";
-            NavigationService.Navigate(new MenuPage());
+            mainWindow.Title = menuPage.Title;
+            mainWindow.MainFrame.Navigate(menuPage);
         }
     }
 }

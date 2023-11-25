@@ -7,17 +7,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Главное меню">
-
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label x:Name="UserLabel" Content="Пользователь:"/>
-            <Label x:Name="UserRoleLabel" Content="Роль:"/>
-            <Button x:Name="LogoutButton" Content="Выйти"/>
-            <Button x:Name="ClientButton" Content="Клиенты" Click="ClientButton_Click"/>
-            <Button x:Name="EmployeeButton" Content="Сотрудники"/>
-            <Button x:Name="SessionButton" Content="Сеансы"/>
-            <Button x:Name="PaymentButton" Content="Выплаты"/>
-            <Button x:Name="CompanyButton" Content="Компании"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Button x:Name="ClientButton" Content="Клиенты" Click="ClientButton_Click" Grid.Column="0" Grid.Row="1" Margin="60"/>
+        <Button x:Name="EmployeeButton" Content="Сотрудники" Click="EmployeeButton_Click" Grid.Column="1" Grid.Row="1" Margin="60"/>
+        <Button x:Name="CompanyButton" Content="Компании" Click="CompanyButton_Click" Grid.Column="2" Grid.Row="1" Margin="60"/>
+
+
+        <Button x:Name="SessionButton" Content="Сеансы" Click="SessionButton_Click" Grid.Column="0" Grid.Row="2" Margin="60"/>
+        <Button x:Name="PaymentButton" Content="Выплаты" Click="PaymentButton_Click" Grid.Column="2" Grid.Row="2" Margin="60"/>
     </Grid>
 </Page>

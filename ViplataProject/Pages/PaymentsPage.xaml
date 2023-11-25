@@ -9,6 +9,9 @@
       Title="Выплаты">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Выплаты"/>
+            <Button Content="Выйти в меню" Click="MenuButton_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

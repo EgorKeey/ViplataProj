@@ -9,6 +9,10 @@
       Title="Сеансы">
 
     <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Сеансы"/>
+            <Button Content="Выйти в меню" Click="MenuButton_Click"/>
+        </StackPanel>
         
     </Grid>
 </Page>

@@ -24,5 +24,12 @@ namespace ViplataProject.Pages
         {
             InitializeComponent();
         }
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPage menuPage = new MenuPage();
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            mainWindow.Title = menuPage.Title;
+            mainWindow.MainFrame.Navigate(menuPage);
+        }
     }
 }

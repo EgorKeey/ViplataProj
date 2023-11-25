@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViplataProject.Pages;
+using ViplataProject.Windows;
 
 namespace ViplataProject
 {
@@ -27,6 +28,12 @@ namespace ViplataProject
 
             MainFrame.Content = new MenuPage();
         }
-
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            authWindow.Show();
+            mainWindow.Close();
+        }
     }
 }
