@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViplataProject", "ViplataProject\ViplataProject.csproj", "{45AC873E-97C4-4479-847C-6ABF7D7662C5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EEC821B-B6C4-474F-A413-6706A006C675} = {3EEC821B-B6C4-474F-A413-6706A006C675}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViplataProject.Infrastructure", "ViplataProject.Infrastructure\ViplataProject.Infrastructure.csproj", "{3EEC821B-B6C4-474F-A413-6706A006C675}"
 EndProject
