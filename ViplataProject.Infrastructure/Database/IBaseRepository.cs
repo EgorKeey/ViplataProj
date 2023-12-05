@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ViplataProject.Infrastructure.Database
 {
-    internal interface IBaseRepository
+    internal interface IBaseRepository<TEntity>
     {
+        TEntity GetById(long id);
+        List<TEntity> GetList();
     }
+
 }

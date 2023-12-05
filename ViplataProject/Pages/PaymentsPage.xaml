@@ -4,14 +4,36 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ViplataProject.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Выплаты">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
             <Label Content="Выплаты"/>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
         </StackPanel>
+        <DataGrid x:Name="CompanyDG" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Header="ФИО сотрудника" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Тариф" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Отпускные" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Надбавка по инвалидности" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Надбавка за выполненную работу" Binding="{Binding}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Page>

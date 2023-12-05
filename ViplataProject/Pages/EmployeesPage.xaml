@@ -11,27 +11,32 @@
 
     <Grid>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
             <Label Content="Сотрудники"/>
-            <DataGrid AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                    <materialDesign:DataGridTextColumn/>
-                </DataGrid.Columns>
-            </DataGrid>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
-
         </StackPanel>
+        <DataGrid AutoGenerateColumns="False" CanUserReorderColumns="False" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Header="Фамилия" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Имя" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Отчество" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Дата рождения" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Пол" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Инвалидность" Binding="{Binding}"/>
+                <materialDesign:DataGridTextColumn Header="Стаж" Binding="{Binding}"/>
 
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Page>

@@ -18,11 +18,16 @@ namespace ViplataProject.Pages
     /// <summary>
     /// Логика взаимодействия для CompaniesPage.xaml
     /// </summary>
+    /// 
     public partial class CompaniesPage : Page
     {
+        //private CompanyRepository company_repository;
         public CompaniesPage()
         {
             InitializeComponent();
+            //company_repository = new CompanyRepository();
+            //CompanyDG.ItemsSource = company_repository.GetList();
+
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
