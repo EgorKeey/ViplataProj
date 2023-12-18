@@ -6,20 +6,27 @@ namespace ViplataProject.Infrastructure
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Role")]
-    public partial class RoleEntity
+    [Table("Job")]
+    public partial class JobEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoleEntity()
+        public JobEntity()
         {
-            User = new HashSet<UserEntity>();
+            Employee = new HashSet<EmployeeEntity>();
         }
-
+        [Column(name: "ID")]
         public long ID { get; set; }
 
-        public long Name_Role { get; set; }
+        [Column(name: "Title")]
+        [Required]
+        [StringLength(2147483647)]
+        public string Title { get; set; }
+
+        [Column(name: "Work_Day")]
+        [StringLength(2147483647)]
+        public string Work_Day { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserEntity> User { get; set; }
+        public virtual ICollection<EmployeeEntity> Employee { get; set; }
     }
 }

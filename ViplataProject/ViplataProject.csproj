@@ -175,6 +175,12 @@
   <ItemGroup>
     <Resource Include="Windows\LogoRITM.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViplataProject.Infrastructure\ViplataProject.Infrastructure.csproj">
+      <Project>{3eec821b-b6c4-474f-a413-6706a006c675}</Project>
+      <Name>ViplataProject.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -15,15 +15,15 @@
             <Label Content="Сотрудники"/>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
         </StackPanel>
-        <DataGrid AutoGenerateColumns="False" CanUserReorderColumns="False" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <DataGrid x:Name="EmployeeDG" AutoGenerateColumns="False" CanUserReorderColumns="False" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Header="Фамилия" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Имя" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Отчество" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Дата рождения" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Пол" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Инвалидность" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Стаж" Binding="{Binding}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Second_Name}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Date_Of_Birth}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="Инвалидность" Binding="{Binding disability}"/>
+                <DataGridTextColumn Header="Стаж" Binding="{Binding expirience}"/>
 
             </DataGrid.Columns>
         </DataGrid>

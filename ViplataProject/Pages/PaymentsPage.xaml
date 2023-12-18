@@ -14,13 +14,13 @@
             <Label Content="Выплаты"/>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
         </StackPanel>
-        <DataGrid x:Name="CompanyDG" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <DataGrid x:Name="PaymentDG" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Header="ФИО сотрудника" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Тариф" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Отпускные" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Надбавка по инвалидности" Binding="{Binding}"/>
-                <materialDesign:DataGridTextColumn Header="Надбавка за выполненную работу" Binding="{Binding}"/>
+                <DataGridTextColumn Header="ФИО сотрудника" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Тариф" Binding="{Binding Rate}"/>
+                <DataGridTextColumn Header="Отпускные" Binding="{Binding Vacation}"/>
+                <DataGridTextColumn Header="Надбавка по инвалидности" Binding="{Binding Bonus_For_Disability}"/>
+                <DataGridTextColumn Header="Надбавка за выполненную работу" Binding="{Binding Bonus_For_Done_Work}"/>
             </DataGrid.Columns>
 
         </DataGrid>

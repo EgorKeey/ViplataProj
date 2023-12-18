@@ -12,17 +12,17 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<CompanyViewModel> GetList()
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var items = context.Companies.ToList();
+                var items = context.Company.ToList();
                 return CompanyMapper.Map(items);
             }
         }
         public CompanyViewModel GetById(long id)
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var item = context.Companies.FirstOrDefault(x => x.ID == id);
+                var item = context.Company.FirstOrDefault(x => x.ID == id);
                 return CompanyMapper.Map(item);
             }
         }

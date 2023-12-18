@@ -12,17 +12,17 @@ namespace ViplataProject.Infrastructure.Database
     {
             public List<PaymentViewModel> GetList()
             {
-                using (var context = new Context())
+                using (var context = new Contxt())
                 {
-                    var items = context.Payments.ToList();
+                    var items = context.Payment.ToList();
                     return PaymentMapper.Map(items);
                 }
             }
             public PaymentViewModel GetById(long id)
             {
-                using (var context = new Context())
+                using (var context = new Contxt())
                 {
-                    var item = context.Payments.FirstOrDefault(x => x.ID == id);
+                    var item = context.Payment.FirstOrDefault(x => x.ID == id);
                     return PaymentMapper.Map(item);
                 }
             }

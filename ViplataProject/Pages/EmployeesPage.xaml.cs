@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViplataProject.Infrastructure;
+using ViplataProject.Infrastructure.Database;
+
 
 namespace ViplataProject.Pages
 {
+    
     /// <summary>
     /// Логика взаимодействия для EmployeesPage.xaml
     /// </summary>
     public partial class EmployeesPage : Page
     {
+        private EmployeeRepository employee_repository;
         public EmployeesPage()
         {
             InitializeComponent();
+            employee_repository = new EmployeeRepository();
+            EmployeeDG.ItemsSource = employee_repository.GetList();
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {

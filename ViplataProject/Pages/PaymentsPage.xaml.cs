@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViplataProject.Infrastructure;
+using ViplataProject.Infrastructure.Database;
 
 namespace ViplataProject.Pages
 {
@@ -20,9 +22,12 @@ namespace ViplataProject.Pages
     /// </summary>
     public partial class PaymentsPage : Page
     {
+        private PaymentRepository payment_repository;
         public PaymentsPage()
         {
             InitializeComponent();
+            payment_repository = new PaymentRepository();
+            PaymentDG.ItemsSource = payment_repository.GetList();
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {

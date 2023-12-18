@@ -12,17 +12,17 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<RoleViewModel> GetList()
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var items = context.Roles.ToList();
+                var items = context.Role.ToList();
                 return RoleMapper.Map(items);
             }
         }
         public RoleViewModel GetById(long id)
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var item = context.Roles.FirstOrDefault(x => x.ID == id);
+                var item = context.Role.FirstOrDefault(x => x.ID == id);
                 return RoleMapper.Map(item);
             }
         }

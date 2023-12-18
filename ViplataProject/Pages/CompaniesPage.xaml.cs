@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViplataProject.Infrastructure;
+using ViplataProject.Infrastructure.Database;
 
 namespace ViplataProject.Pages
 {
@@ -21,12 +23,12 @@ namespace ViplataProject.Pages
     /// 
     public partial class CompaniesPage : Page
     {
-        //private CompanyRepository company_repository;
+        private CompanyRepository company_repository;
         public CompaniesPage()
         {
             InitializeComponent();
-            //company_repository = new CompanyRepository();
-            //CompanyDG.ItemsSource = company_repository.GetList();
+            company_repository = new CompanyRepository();
+            CompanyDG.ItemsSource = company_repository.GetList();
 
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)

@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
@@ -62,8 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Company.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="CompanyEntity.cs" />
+    <Compile Include="Contxt.cs" />
     <Compile Include="Database\CompanyRepository.cs" />
     <Compile Include="Database\EmployeeRepository.cs" />
     <Compile Include="Database\IBaseRepository.cs" />
@@ -71,18 +72,23 @@
     <Compile Include="Database\PaymentRepository.cs" />
     <Compile Include="Database\RoleRepository.cs" />
     <Compile Include="Database\UserRepository.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Job.cs" />
+    <Compile Include="EmployeeEntity.cs" />
+    <Compile Include="JobEntity.cs" />
     <Compile Include="Mappers\CompanyMapper.cs" />
     <Compile Include="Mappers\EmployeeMapper.cs" />
     <Compile Include="Mappers\JobMapper.cs" />
     <Compile Include="Mappers\PaymentMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
-    <Compile Include="Payment.cs" />
+    <Compile Include="Migrations\202312181032345_AddCompanyMigration.cs" />
+    <Compile Include="Migrations\202312181032345_AddCompanyMigration.designer.cs">
+      <DependentUpon>202312181032345_AddCompanyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PaymentEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="RoleEntity.cs" />
+    <Compile Include="UserEntity.cs" />
     <Compile Include="ViewModels\CompanyViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\JobViewModel.cs" />
@@ -93,6 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202312181032345_AddCompanyMigration.resx">
+      <DependentUpon>202312181032345_AddCompanyMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -12,17 +12,17 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<EmployeeViewModel> GetList()
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var items = context.Employees.ToList();
+                var items = context.Employee.ToList();
                 return EmployeeMapper.Map(items);
             }
         }
         public EmployeeViewModel GetById(long id)
         {
-            using (var context = new Context())
+            using (var context = new Contxt())
             {
-                var item = context.Employees.FirstOrDefault(x => x.ID == id);
+                var item = context.Employee.FirstOrDefault(x => x.ID == id);
                 return EmployeeMapper.Map(item);
             }
         }
