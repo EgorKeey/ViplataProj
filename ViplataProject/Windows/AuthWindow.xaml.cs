@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using ViplataProject.Infrastructure.Consts;
 namespace ViplataProject.Windows
 {
     /// <summary>
@@ -26,8 +26,39 @@ namespace ViplataProject.Windows
             Title = "Окно авторизации";
         }
 
+
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
+
+        { 
+            if (LoginBox.Text == "" && PasswordBox.Password == "")// Проверка наличия введенных логина и пароля.
+            {
+                MessageBox.Show("Логин и пароль не могут быть пустыми строками!");
+                return;
+            }
+            if (LoginBox.Text == "")
+            {
+                MessageBox.Show("Логин не может быть пустой строкой!");
+                return;
+            }
+            if (PasswordBox.Password == "")
+            {
+                MessageBox.Show("Пароль не может быть пустой строкой!");
+                return;
+            }
+            MainWindow mainWindow = new MainWindow()
+            {
+                Title = "Главное меню"
+            };
+            mainWindow.Show();
+            Close();
+        }
+
+        private void GuestButton_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Resources[UserInfoConsts.RoleId] = 1;
+            Application.Current.Resources[UserInfoConsts.RoleName] = "Гость";
+            Application.Current.Resources[UserInfoConsts.Username] = "Гость";
             MainWindow mainWindow = new MainWindow()
             {
                 Title = "Главное меню"

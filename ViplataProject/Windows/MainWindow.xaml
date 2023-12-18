@@ -27,8 +27,8 @@
         <Image Source="/Windows/LogoRITM.png" Stretch="Fill" Grid.Column="0" Grid.Row="0"/>
         <Label Content="RITM" FontSize="24" Background="{x:Null}" Foreground="#FF673AB7" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <Label x:Name="UserLabel" Content="Пользователь:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="UserRoleLabel" Content="Роль:" HorizontalAlignment="Left" />
+            <Label x:Name="UserLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label x:Name="RoleLabel" HorizontalAlignment="Left" Cursor="Hand" />
         </StackPanel>
 
         <Button x:Name="LogoutButton" Content="Выйти" Click="LogoutButton_Click" Grid.Row="0" Grid.Column="2"/>

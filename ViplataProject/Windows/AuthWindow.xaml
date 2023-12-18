@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:ViplataProject.Windows"
         mc:Ignorable="d"
         Title="AuthWindow" MinHeight="450" MinWidth="800" MaxHeight="1080" MaxWidth="1920" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="LoginButton" Click="LoginButton_Click"/>
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" Height="200" Width="250">
+        <Label Content="Введите логин:"/>
+        <TextBox x:Name="LoginBox" Background="White" BorderBrush="Black" />
+        <Label Content="Введите пароль"/>
+        <PasswordBox x:Name="PasswordBox"/>
+        <Button x:Name="LoginButton" Content="Войти" Click="LoginButton_Click" />
+        <Button x:Name="GuestButton" Content="Войти как гость" Click="GuestButton_Click"/>
+    </StackPanel>
 </Window>

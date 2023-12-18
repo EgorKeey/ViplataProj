@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyEntity.cs" />
+    <Compile Include="Consts\UserInfoConsts.cs" />
     <Compile Include="Contxt.cs" />
     <Compile Include="Database\CompanyRepository.cs" />
     <Compile Include="Database\EmployeeRepository.cs" />
