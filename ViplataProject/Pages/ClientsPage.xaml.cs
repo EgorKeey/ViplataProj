@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViplataProject.Infrastructure;
+using ViplataProject.Infrastructure.QR;
+
 namespace ViplataProject.Pages
 {
     /// <summary>
@@ -31,6 +33,9 @@ namespace ViplataProject.Pages
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.Title = menuPage.Title;
             mainWindow.MainFrame.Navigate(menuPage);
+            
+            
+
         }
     }
 }

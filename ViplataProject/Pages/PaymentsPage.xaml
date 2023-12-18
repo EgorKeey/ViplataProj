@@ -14,7 +14,7 @@
             <Label Content="Выплаты"/>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
         </StackPanel>
-        <DataGrid x:Name="PaymentDG" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <DataGrid x:Name="PaymentDG" CanUserSortColumns="True" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО сотрудника" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Тариф" Binding="{Binding Rate}"/>

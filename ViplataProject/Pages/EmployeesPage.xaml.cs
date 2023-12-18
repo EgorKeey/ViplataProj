@@ -14,11 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViplataProject.Infrastructure;
 using ViplataProject.Infrastructure.Database;
-
+using ViplataProject.Infrastructure.QR;
+using ViplataProject.Windows;
 
 namespace ViplataProject.Pages
 {
-    
+
     /// <summary>
     /// Логика взаимодействия для EmployeesPage.xaml
     /// </summary>
@@ -37,6 +38,17 @@ namespace ViplataProject.Pages
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.Title = menuPage.Title;
             mainWindow.MainFrame.Navigate(menuPage);
+            
         }
+
+        private void ButtonQR_Click(object sender, RoutedEventArgs e)
+        {
+            var qrManager = new QRManager();
+            var qrCodeImage = qrManager.Generate(EmployeeDG.SelectedItem);
+            var qrWindow = new QRWindow();
+            qrWindow.qrImage.Source = qrCodeImage;
+            qrWindow.Show();
+        }
+
     }
 }
