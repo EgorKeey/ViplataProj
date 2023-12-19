@@ -12,7 +12,7 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<RoleViewModel> GetList()
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var items = context.Role.ToList();
                 return RoleMapper.Map(items);
@@ -20,7 +20,7 @@ namespace ViplataProject.Infrastructure.Database
         }
         public RoleViewModel GetById(long id)
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var item = context.Role.FirstOrDefault(x => x.ID == id);
                 return RoleMapper.Map(item);

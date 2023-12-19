@@ -15,7 +15,7 @@
             <Label Content="Сотрудники"/>
             <Button Content="Выйти в меню" Click="MenuButton_Click"/>
         </StackPanel>
-        <DataGrid x:Name="EmployeeDG" AutoGenerateColumns="False" CanUserReorderColumns="False" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <DataGrid x:Name="EmployeeDG" AutoGenerateColumns="False" CanUserSortColumns="True" CanUserReorderColumns="False" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Second_Name}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>

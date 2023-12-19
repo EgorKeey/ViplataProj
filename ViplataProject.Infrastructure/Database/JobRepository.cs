@@ -12,7 +12,7 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<JobViewModel> GetList()
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var items = context.Job.ToList();
                 return JobMapper.Map(items);
@@ -20,7 +20,7 @@ namespace ViplataProject.Infrastructure.Database
         }
         public JobViewModel GetById(long id)
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var item = context.Job.FirstOrDefault(x => x.ID == id);
                 return JobMapper.Map(item);

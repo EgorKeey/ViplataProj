@@ -14,9 +14,9 @@ namespace ViplataProject.Infrastructure
         {
             Employee = new HashSet<EmployeeEntity>();
         }
-        [Column(name:"Id")]
+        [Column(name: "Id")]
         public long ID { get; set; }
-        [Column(name: "name company")]
+        [Column(name: "Name_Company")]
         public long Name_Company { get; set; }
 
         [Column(name: "Physical_Address")]

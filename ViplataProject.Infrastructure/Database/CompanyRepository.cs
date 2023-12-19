@@ -12,7 +12,7 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<CompanyViewModel> GetList()
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var items = context.Company.ToList();
                 return CompanyMapper.Map(items);
@@ -20,7 +20,7 @@ namespace ViplataProject.Infrastructure.Database
         }
         public CompanyViewModel GetById(long id)
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var item = context.Company.FirstOrDefault(x => x.ID == id);
                 return CompanyMapper.Map(item);

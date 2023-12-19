@@ -14,11 +14,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViplataProject.Infrastructure;
 using ViplataProject.Infrastructure.Database;
+using ViplataProject.Infrastructure.ViewModels;
+using ViplataProject.Infrastructure.Mappers;
 
 
 namespace ViplataProject.Pages
 {
-    
+
     /// <summary>
     /// Логика взаимодействия для EmployeesPage.xaml
     /// </summary>
@@ -29,7 +31,30 @@ namespace ViplataProject.Pages
         {
             InitializeComponent();
             employee_repository = new EmployeeRepository();
+            UpdateGrid();
+        }
+        private void UpdateGrid()
+        {
             EmployeeDG.ItemsSource = employee_repository.GetList();
+
+        }
+
+        public List<EmployeeViewModel> GetList()
+        {
+            using (var context = new Context())
+            {
+                var items = context.Employee.ToList();
+                return EmployeeMapper.Map(items);
+            }
+        }
+
+        public EmployeeViewModel GetById(long id)
+        {
+            using (var context = new Context())
+            {
+                var item = context.Employee.FirstOrDefault(x => x.ID == id);
+                return EmployeeMapper.Map(item);
+            }
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -39,4 +64,5 @@ namespace ViplataProject.Pages
             mainWindow.MainFrame.Navigate(menuPage);
         }
     }
+
 }

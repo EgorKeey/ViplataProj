@@ -12,7 +12,7 @@ namespace ViplataProject.Infrastructure.Database
     {
         public List<UserViewModel> GetList()
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var items = context.User.ToList();
                 return UserMapper.Map(items);
@@ -20,7 +20,7 @@ namespace ViplataProject.Infrastructure.Database
         }
         public UserViewModel GetById(long id)
         {
-            using (var context = new Contxt())
+            using (var context = new Context())
             {
                 var item = context.User.FirstOrDefault(x => x.ID == id);
                 return UserMapper.Map(item);

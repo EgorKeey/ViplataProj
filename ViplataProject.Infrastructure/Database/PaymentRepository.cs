@@ -12,7 +12,7 @@ namespace ViplataProject.Infrastructure.Database
     {
             public List<PaymentViewModel> GetList()
             {
-                using (var context = new Contxt())
+                using (var context = new Context())
                 {
                     var items = context.Payment.ToList();
                     return PaymentMapper.Map(items);
@@ -20,7 +20,7 @@ namespace ViplataProject.Infrastructure.Database
             }
             public PaymentViewModel GetById(long id)
             {
-                using (var context = new Contxt())
+                using (var context = new Context())
                 {
                     var item = context.Payment.FirstOrDefault(x => x.ID == id);
                     return PaymentMapper.Map(item);

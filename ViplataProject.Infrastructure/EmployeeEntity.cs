@@ -42,20 +42,20 @@ namespace ViplataProject.Infrastructure
         [StringLength(2147483647)]
         public string Gender { get; set; }
 
-        [Column("Disability")]
+        [Column("disability")]
         [Required]
         [StringLength(2147483647)]
-        public string Disability { get; set; }
+        public string disability { get; set; }
 
-        [Column("Expirience")]
+        [Column("expirience")]
         [Required]
         [StringLength(2147483647)]
-        public string Expirience { get; set; }
-
+        public string expirience { get; set; }
+        [Column("ID_User")]
         public long UserId { get; set; }
-
+        [Column("ID_Job")]
         public long JobId { get; set; }
-
+        [Column("ID_Company")]
         public long CompanyId { get; set; }
 
         public virtual CompanyEntity Company { get; set; }

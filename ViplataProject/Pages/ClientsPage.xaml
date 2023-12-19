@@ -15,7 +15,7 @@
             <Button x:Name="MenuButton" Content="Назад в меню" Click="MenuButton_Click"/>
         </StackPanel>
 
-        <DataGrid x:Name="ClientsDG" CanUserReorderColumns="False" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <DataGrid x:Name="ClientsDG" CanUserReorderColumns="False" CanUserSortColumns="True" IsReadOnly ="True" AutoGenerateColumns="False" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding}"/>
