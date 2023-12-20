@@ -14,13 +14,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViplataProject.Infrastructure;
 using ViplataProject.Infrastructure.Database;
+using ViplataProject.Infrastructure.ViewModels;
+using ViplataProject.Infrastructure.Mappers;
+using ViplataProject.Infrastructure.QR;
+using ViplataProject.Windows;
 
 namespace ViplataProject.Pages
 {
+
     /// <summary>
-    /// Логика взаимодействия для CompaniesPage.xaml
+    /// Логика взаимодействия для EmployeesPage.xaml
     /// </summary>
-    /// 
     public partial class CompaniesPage : Page
     {
         private CompanyRepository company_repository;
@@ -28,8 +32,30 @@ namespace ViplataProject.Pages
         {
             InitializeComponent();
             company_repository = new CompanyRepository();
+            UpdateGrid();
+        }
+        private void UpdateGrid()
+        {
             CompanyDG.ItemsSource = company_repository.GetList();
 
+        }
+
+        public List<CompanyViewModel> GetList()
+        {
+            using (var context = new Context())
+            {
+                var items = context.Company.ToList();
+                return CompanyMapper.Map(items);
+            }
+        }
+
+        public CompanyViewModel GetById(long id)
+        {
+            using (var context = new Context())
+            {
+                var item = context.Company.FirstOrDefault(x => x.ID == id);
+                return CompanyMapper.Map(item);
+            }
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -38,5 +64,15 @@ namespace ViplataProject.Pages
             mainWindow.Title = menuPage.Title;
             mainWindow.MainFrame.Navigate(menuPage);
         }
+
+        private void QRButton_Click(object sender, RoutedEventArgs e)
+        {
+            var qrManager = new QRManager();
+            var qrCodeImage = qrManager.Generate(CompanyDG.SelectedItem);
+            var qrWindow = new QRWindow();
+            qrWindow.qrImage.Source = qrCodeImage;
+            qrWindow.Show();
+        }
     }
+
 }

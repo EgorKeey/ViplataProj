@@ -16,7 +16,8 @@ using ViplataProject.Infrastructure;
 using ViplataProject.Infrastructure.Database;
 using ViplataProject.Infrastructure.ViewModels;
 using ViplataProject.Infrastructure.Mappers;
-
+using ViplataProject.Infrastructure.QR;
+using ViplataProject.Windows;
 
 namespace ViplataProject.Pages
 {
@@ -62,6 +63,15 @@ namespace ViplataProject.Pages
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.Title = menuPage.Title;
             mainWindow.MainFrame.Navigate(menuPage);
+        }
+
+        private void QRButton_Click(object sender, RoutedEventArgs e)
+        {
+            var qrManager = new QRManager();
+            var qrCodeImage = qrManager.Generate(EmployeeDG.SelectedItem);
+            var qrWindow = new QRWindow();
+            qrWindow.qrImage.Source = qrCodeImage;
+            qrWindow.Show();
         }
     }
 
