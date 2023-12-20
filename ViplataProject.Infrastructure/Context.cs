@@ -8,7 +8,9 @@ namespace ViplataProject.Infrastructure
     public partial class Context : DbContext
     {
         public Context()
+
             : base("Context")
+
         {
         }
 
@@ -24,7 +26,9 @@ namespace ViplataProject.Infrastructure
             modelBuilder.Entity<CompanyEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.Company)
+
                 .HasForeignKey(e => e.CompanyId)
+
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<EmployeeEntity>()
@@ -36,6 +40,7 @@ namespace ViplataProject.Infrastructure
             modelBuilder.Entity<JobEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.Job)
+
                 .HasForeignKey(e => e.JobId)
                 .WillCascadeOnDelete(false);
 
@@ -50,16 +55,21 @@ namespace ViplataProject.Infrastructure
                 .Property(e => e.Bonus_For_Done_Work)
                 .HasPrecision(18, 0);
 
+
             modelBuilder.Entity<RoleEntity>()
                 .HasMany(e => e.User)
                 .WithRequired(e => e.Role)
+
                 .HasForeignKey(e => e.RoleId)
+
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.User)
+
                 .HasForeignKey(e => e.UserId)
+
                 .WillCascadeOnDelete(false);
         }
     }
