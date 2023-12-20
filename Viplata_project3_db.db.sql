@@ -1,0 +1,55 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Role" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Name_Role"	INTEGER NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Job" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Title"	TEXT NOT NULL CHECK(length("Title") <= 50),
+	"Work_Day"	TEXT CHECK(length("Work_Day") <= 50),
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "User" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Login"	TEXT NOT NULL CHECK(length("Login") <= 20),
+	"Password"	TEXT NOT NULL CHECK(length("Password") <= 20),
+	"ID_Role"	INTEGER NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT),
+	FOREIGN KEY("ID_Role") REFERENCES "Role"("ID") ON UPDATE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "Company" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Name_Company"	INTEGER NOT NULL,
+	"Physical_Address"	TEXT NOT NULL CHECK(length("Physical_Address") <= 50),
+	"Legal_Address"	TEXT NOT NULL CHECK(length("Legal_Address") <= 50),
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Employee" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Second_Name"	TEXT NOT NULL CHECK(length("Second_Name") <= 50),
+	"Name"	TEXT NOT NULL CHECK(length("Name") <= 50),
+	"Patronymic"	TEXT NOT NULL CHECK(length("Patronymic") <= 50),
+	"Date_Of_Birth"	TEXT NOT NULL CHECK(length("Date_Of_Birth") <= 50),
+	"Gender"	TEXT NOT NULL CHECK(length("Gender") <= 50),
+	"disability"	TEXT CHECK(length("disability") <= 50),
+	"expirience"	TEXT NOT NULL CHECK(length("expirience") <= 50),
+	"ID_User"	INTEGER NOT NULL,
+	"ID_Job"	INTEGER NOT NULL,
+	"ID_Company"	INTEGER NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT),
+	FOREIGN KEY("ID_User") REFERENCES "User"("ID") ON UPDATE CASCADE,
+	FOREIGN KEY("ID_Job") REFERENCES "Job"("ID") ON UPDATE SET NULL,
+	FOREIGN KEY("ID_Company") REFERENCES "Company"("ID") ON UPDATE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "Payment" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"ID_Employee"	INTEGER NOT NULL,
+	"Rate"	TEXT NOT NULL CHECK(length("Rate") <= 50),
+	"Vacation"	INTEGER NOT NULL,
+	"Bonus_For_Disability"	INTEGER,
+	"Bonus_For_Done_Work"	INTEGER,
+	PRIMARY KEY("ID" AUTOINCREMENT),
+	FOREIGN KEY("ID_Employee") REFERENCES "Employee"("ID") ON UPDATE CASCADE
+);
+COMMIT;

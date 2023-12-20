@@ -8,7 +8,9 @@ namespace ViplataProject.Infrastructure
     public partial class Context : DbContext
     {
         public Context()
-            : base("name=Context")
+
+            : base("Context")
+
         {
         }
 
@@ -24,7 +26,9 @@ namespace ViplataProject.Infrastructure
             modelBuilder.Entity<CompanyEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.Company)
-                .HasForeignKey(e => e.ID_Company)
+
+                .HasForeignKey(e => e.CompanyId)
+
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<EmployeeEntity>()
@@ -36,31 +40,36 @@ namespace ViplataProject.Infrastructure
             modelBuilder.Entity<JobEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.Job)
-                .HasForeignKey(e => e.ID_Job)
+
+                .HasForeignKey(e => e.JobId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PaymentEntity>()
-                .Property(e => e.Vacation)
-                .HasPrecision(53, 0);
+                .Property(e => e.Vacation);
 
             modelBuilder.Entity<PaymentEntity>()
                 .Property(e => e.Bonus_For_Disability)
-                .HasPrecision(53, 0);
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<PaymentEntity>()
                 .Property(e => e.Bonus_For_Done_Work)
-                .HasPrecision(53, 0);
+                .HasPrecision(18, 0);
+
 
             modelBuilder.Entity<RoleEntity>()
                 .HasMany(e => e.User)
                 .WithRequired(e => e.Role)
-                .HasForeignKey(e => e.ID_Role)
+
+                .HasForeignKey(e => e.RoleId)
+
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserEntity>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.User)
-                .HasForeignKey(e => e.ID_User)
+
+                .HasForeignKey(e => e.UserId)
+
                 .WillCascadeOnDelete(false);
         }
     }

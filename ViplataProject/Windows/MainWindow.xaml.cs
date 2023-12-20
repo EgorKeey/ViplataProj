@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViplataProject.Infrastructure.Consts;
+using ViplataProject.Pages;
+using ViplataProject.Windows;
 
 namespace ViplataProject
 {
@@ -23,6 +26,17 @@ namespace ViplataProject
         public MainWindow()
         {
             InitializeComponent();
+
+            MainFrame.Content = new MenuPage();
+            RoleLabel.Content = Application.Current.Resources[UserInfoConsts.RoleName];
+            UserLabel.Content = Application.Current.Resources[UserInfoConsts.Username];
+        }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            authWindow.Show();
+            mainWindow.Close();
         }
     }
 }
