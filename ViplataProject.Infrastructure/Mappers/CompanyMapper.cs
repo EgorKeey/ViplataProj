@@ -17,8 +17,6 @@ namespace ViplataProject.Infrastructure.Mappers
                 Name_Company = entity.Name_Company,
                 Legal_Address = entity.Legal_Address,
                 Physical_Address = entity.Physical_Address,
-
-
             };
             return viewModel;
         }

@@ -40,8 +40,7 @@ namespace ViplataProject.Infrastructure
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PaymentEntity>()
-                .Property(e => e.Vacation)
-                .HasPrecision(18, 0);
+                .Property(e => e.Vacation);
 
             modelBuilder.Entity<PaymentEntity>()
                 .Property(e => e.Bonus_For_Disability)

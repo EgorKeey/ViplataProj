@@ -21,7 +21,7 @@ namespace ViplataProject.Infrastructure
         public string Rate { get; set; }
 
         [Column(name: "Vacation")]
-        public decimal Vacation { get; set; }
+        public string Vacation { get; set; }
 
         [Column(name: "Bonus_For_Disability")]
         public decimal? Bonus_For_Disability { get; set; }

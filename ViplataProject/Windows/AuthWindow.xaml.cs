@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ViplataProject.Infrastructure.Consts;
+using ViplataProject.Infrastructure;
 namespace ViplataProject.Windows
 {
     /// <summary>
@@ -30,8 +31,8 @@ namespace ViplataProject.Windows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
 
-        { 
-            if (LoginBox.Text == "" && PasswordBox.Password == "")// Проверка наличия введенных логина и пароля.
+        {
+            if (LoginBox.Text == "" && PasswordBox.Password == "")
             {
                 MessageBox.Show("Логин и пароль не могут быть пустыми строками!");
                 return;
@@ -46,12 +47,27 @@ namespace ViplataProject.Windows
                 MessageBox.Show("Пароль не может быть пустой строкой!");
                 return;
             }
-            MainWindow mainWindow = new MainWindow()
+            using (Infrastructure.Context context = new Infrastructure.Context())
             {
-                Title = "Главное меню"
-            };
-            mainWindow.Show();
-            Close();
+                var user = context.User.FirstOrDefault(x => x.Login == LoginBox.Text && x.Password == PasswordBox.Password);
+                if (user != null)
+                {
+                //    string rolename = context.Role.FirstOrDefault(x => x.ID == user.RoleId).Name_Role;
+                    var employee = context.Employee.FirstOrDefault(x => x.UserId == user.ID);
+                    Application.Current.Resources[UserInfoConsts.RoleId] = user.RoleId;
+                    Application.Current.Resources[UserInfoConsts.RoleName] = context.Role.FirstOrDefault(x => x.ID == user.RoleId).Name_Role;
+                    Application.Current.Resources[UserInfoConsts.Username] = employee.Name;
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль)");
+                }
+            }
+
+
         }
 
         private void GuestButton_Click(object sender, RoutedEventArgs e)

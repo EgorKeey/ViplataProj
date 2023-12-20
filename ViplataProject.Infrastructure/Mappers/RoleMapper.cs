@@ -15,7 +15,6 @@ namespace ViplataProject.Infrastructure.Mappers
             {
                 ID = entity.ID,
                 Name_Role = entity.Name_Role,
-                
             };
             return viewModel;
         }

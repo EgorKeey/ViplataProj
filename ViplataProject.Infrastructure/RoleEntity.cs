@@ -18,7 +18,7 @@ namespace ViplataProject.Infrastructure
         public long ID { get; set; }
 
         [Column(name: "Name_Role")]
-        public long Name_Role { get; set; }
+        public string Name_Role { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserEntity> User { get; set; }

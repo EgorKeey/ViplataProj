@@ -10,6 +10,6 @@ namespace ViplataProject.Infrastructure.ViewModels
     public class RoleViewModel
     {
         public long ID { get; set; }
-        public long Name_Role { get; set; }
+        public string Name_Role { get; set; }
     }
 }

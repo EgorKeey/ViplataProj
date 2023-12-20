@@ -17,7 +17,7 @@ namespace ViplataProject.Infrastructure
         [Column(name: "Id")]
         public long ID { get; set; }
         [Column(name: "Name_Company")]
-        public long Name_Company { get; set; }
+        public string Name_Company { get; set; }
 
         [Column(name: "Physical_Address")]
         [Required]
